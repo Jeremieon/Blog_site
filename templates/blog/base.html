@@ -17,6 +17,11 @@
     {% endif %}
 </head>
 <body class="container">
+<div class="col-md-8">
+  {% if messages %} {% for message in messages %}
+  <div class="alert alert-{{ message.tag }}">{{ message }}</div>
+  {% endfor%} {% endif %}
+</div>
 <nav><a class="'nav" href="{% url 'about' %}">About</a></nav>
     {% block content%}
     {% endblock %}
