@@ -6,11 +6,11 @@ from django.contrib.auth.decorators import login_required # Import login_require
 
 def register(request): #define the method to register a user into the database
     if request.method =='POST': #if the form become submitted
-        form = UserRegisterForm(request.Post) #create an instance of a form
+        form = UserRegisterForm(request.POST) #create an instance of a form
         if form.is_valid():#check is the form created is valid?
             form.save() #yes its valid then save it to database
             username = form.cleaned_data.get('name')
-            messages.sucess(request,f'Account created for {username}!')#displays message when account is created
+            messages.success(request,f'Account created for {username}!')#displays message when account is created
             return redirect('login')#return to the main page
 
     else:
